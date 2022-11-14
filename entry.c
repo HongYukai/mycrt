@@ -14,7 +14,7 @@ void exit(int exit_code) {
     asm("movl %0, %%ebx \n\t"
         "movl $1, %%eax \n\t"
         "int $0x80 \n\t"
-        "hlt \n\t"::"m"(exit_code));
+        "hlt \n\t"::"m"(exit_code));  //! hlt is a protective instruction
 }
 
 void my_crt_entry(void) {
