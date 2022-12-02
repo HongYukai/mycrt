@@ -90,4 +90,29 @@ int seek(int fd, int offset, int mode) {
     return ret;
 }
 
+int fputc(char c, int fd) {
+    if (write(fd, &c, 1) == 1) {
+        return 1;
+    }
+    else {
+        return EOF;
+    }
+}
+
+int fputs(const char* str, int fd) {
+    unsigned len = strlen(str);
+    if (write(fd, (void*)str, len) == len) {
+        return len;
+    }
+    else {
+        return EOF;
+    }
+}
+
+
+
+
+
+
+
 
