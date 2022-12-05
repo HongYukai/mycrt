@@ -36,7 +36,7 @@ int open(const char* filename, const char* mode) {
         "int $0x80 \n\t"
         "movl %%eax, %0 \n\t":
     "=m"(fd):
-    "m"(filename),"m"(flags),"m"(mode)) ;
+    "m"(filename),"m"(flags),"m"(access)) ;
     return fd;
 }
 
@@ -107,6 +107,83 @@ int fputs(const char* str, int fd) {
     else {
         return EOF;
     }
+}
+
+void* va_arg(char** s, int size) {
+    char* mark = *s;
+    *s = *s + size;
+    return (void*)mark;
+}
+
+unsigned vfprintf(int fd, const char* format, va_list arglist) {
+    int translating = 0;
+    unsigned ret = 0;
+    const char* p = 0;
+    for (p = format; *p != '\0'; ++p) {
+        switch (*p) {
+            case '%':
+                if (!translating) {
+                    translating = 1;
+                }
+                else {
+                    if (fputc('%', fd) < 0) {
+                        return EOF;
+                    }
+                    ++ret;
+                    translating = 0;
+                }
+                break;
+            case 'd':
+                if (translating) {
+                    char buf[16];
+                    translating = 0;
+                    itoa(*(int*)va_arg(&arglist, sizeof(int)), buf, 10);
+                    if (fputs(buf, fd) < 0) {
+                        return EOF;
+                    }
+                    ret += strlen(buf);
+                }
+                else if (fputc('d', fd) < 0) {
+                    return EOF;
+                }
+                else ++ret;
+                break;
+            case 's':
+                if (translating) {
+                    translating = 0;
+                    char* s = *(char**)va_arg(&arglist, sizeof(char*));
+                    if (fputs(s, fd) < 0) {
+                        return EOF;
+                    }
+                    ret += strlen(s);
+                }
+                else if (fputc('s', fd) < 0) {
+                    return EOF;
+                }
+                else ++ret;
+                break;
+            default:
+                if (translating) {
+                    translating = 0;
+                }
+                if (fputc(*p, fd) < 0) {
+                    return EOF;
+                }
+                else ++ret;
+                break;
+        }
+    }
+    return ret;
+}
+
+unsigned printf(const char* format, ...) {
+    va_list arglist = (va_list)((va_list)&format + sizeof(format));
+    return vfprintf(stdout, format, arglist);
+}
+
+unsigned fprintf(int fd, const char* format, ...) {
+    va_list arglist = (va_list)((va_list)&format + sizeof(format));
+    return vfprintf(fd, format, arglist);
 }
 
 

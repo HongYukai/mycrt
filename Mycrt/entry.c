@@ -24,8 +24,8 @@ void my_crt_entry(void) {
     int ret;
     int argc;
     char** argv;
-    char* ebp_reg = 0;
-    asm("movl %%ebp, %0 \n":"=r"(ebp_reg));
+    volatile char* ebp_reg = 0;
+    asm("movl %%ebp, %0 \n\t":"=r"(ebp_reg));
     argc = *(int*)(ebp_reg + 4);
     argv = (char**) (ebp_reg + 8);
     if (!my_crt_heap_init()) {  //! heap is not initialized

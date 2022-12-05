@@ -1,0 +1,2 @@
+/usr/bin/ar qc libMycrt.a  CMakeFiles/Mycrt.dir/entry.c.o CMakeFiles/Mycrt.dir/malloc.c.o CMakeFiles/Mycrt.dir/stdio.c.o CMakeFiles/Mycrt.dir/string.c.o
+/usr/bin/ranlib libMycrt.a
