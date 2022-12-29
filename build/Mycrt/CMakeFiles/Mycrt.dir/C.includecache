@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/hongyk/mycrt/Mycrt/malloc.c
+mycrt.h
+/home/hongyk/mycrt/Mycrt/mycrt.h
+
+/home/hongyk/mycrt/Mycrt/mycrt.h
+
