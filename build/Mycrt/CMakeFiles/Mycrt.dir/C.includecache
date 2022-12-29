@@ -6,9 +6,16 @@
 
 #IncludeRegexTransform: 
 
+<<<<<<< HEAD
 /home/hongyk/mycrt/Mycrt/malloc.c
 mycrt.h
 /home/hongyk/mycrt/Mycrt/mycrt.h
 
+=======
+/home/hongyk/mycrt/Mycrt/mycrt.h
+
+/home/hongyk/mycrt/Mycrt/stdio.c
+mycrt.h
+>>>>>>> 4b4fae43dc16ab2f8e3139d39dcd2b4e9d2a788e
 /home/hongyk/mycrt/Mycrt/mycrt.h
 

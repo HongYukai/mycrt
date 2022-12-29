@@ -8,7 +8,11 @@ extern int main(int argc, char* argv[]);
 void exit(int exit_code);
 
 static void crt_fatal_error(const char* msg) {
+<<<<<<< HEAD
     printf("fatal error: %s\n", msg);
+=======
+    // printf("fatal error: %s", msg);
+>>>>>>> 4b4fae43dc16ab2f8e3139d39dcd2b4e9d2a788e
     exit(1);
 }
 

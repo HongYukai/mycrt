@@ -16,10 +16,13 @@ extern "C" {
 
 int my_crt_heap_init();
 
+<<<<<<< HEAD
 void* malloc(unsigned long long);
 
 void free(void*);
 
+=======
+>>>>>>> 4b4fae43dc16ab2f8e3139d39dcd2b4e9d2a788e
 int my_crt_io_init();
 
 int open(const char *filename, const char *mode);

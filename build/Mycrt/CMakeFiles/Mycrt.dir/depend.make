@@ -5,7 +5,10 @@ Mycrt/CMakeFiles/Mycrt.dir/entry.c.o: ../Mycrt/entry.c
 Mycrt/CMakeFiles/Mycrt.dir/entry.c.o: ../Mycrt/mycrt.h
 
 Mycrt/CMakeFiles/Mycrt.dir/malloc.c.o: ../Mycrt/malloc.c
+<<<<<<< HEAD
 Mycrt/CMakeFiles/Mycrt.dir/malloc.c.o: ../Mycrt/mycrt.h
+=======
+>>>>>>> 4b4fae43dc16ab2f8e3139d39dcd2b4e9d2a788e
 
 Mycrt/CMakeFiles/Mycrt.dir/stdio.c.o: ../Mycrt/mycrt.h
 Mycrt/CMakeFiles/Mycrt.dir/stdio.c.o: ../Mycrt/stdio.c
