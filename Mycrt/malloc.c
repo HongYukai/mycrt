@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "mycrt.h"
 
 typedef struct _heap_header {
@@ -99,8 +98,3 @@ void free(void* ptr) {
         }
     }
 }
-=======
-int my_crt_heap_init() {
-    return 1;
-}
->>>>>>> 4b4fae43dc16ab2f8e3139d39dcd2b4e9d2a788e
