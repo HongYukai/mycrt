@@ -57,7 +57,7 @@ char *itoa(int n, char *str, int radix);
 
 int strcmp(const char *src, const char *dst);
 
-char *strcpy(char *dest, char *src);
+char* strcpy(char* dest, const char* src);
 
 unsigned strlen(const char *str);
 
