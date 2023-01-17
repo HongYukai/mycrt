@@ -1,18 +1,10 @@
-#ifndef MYCRT_STRING_HPP
-#define MYCRT_STRING_HPP
-
 #include "mycrt.h"
-#include "iostream.hpp"
 namespace std {
     class string {
         unsigned len;
         char* buf;
     public:
-<<<<<<< HEAD
-        string(const char* str);
-=======
         explicit string(const char* str);
->>>>>>> 8984ad33ffa0163d3aecd8d43cda81e0319a23e1
         string(const string&);
         ~string();
         string& operator=(const string&);
@@ -53,17 +45,6 @@ namespace std {
     const char& string::operator[](unsigned int index) const {
         return buf[index];
     }
-<<<<<<< HEAD
-    char &string::operator[](unsigned int index) {
-        return buf[index];
-    }
-    const char *string::c_str() const {
-        return buf;
-    }
-    unsigned int string::length() const {
-        return len;
-    }
-=======
 
     char &string::operator[](unsigned int index) {
         return buf[index];
@@ -77,7 +58,6 @@ namespace std {
         return len;
     }
 
->>>>>>> 8984ad33ffa0163d3aecd8d43cda81e0319a23e1
     unsigned int string::size() const {
         return len;
     }
@@ -85,5 +65,3 @@ namespace std {
         return o << s.c_str();
     }
 }
-
-#endif //MYCRT_STRING_HPP

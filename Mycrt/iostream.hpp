@@ -1,18 +1,27 @@
 #ifndef MYCRT_IOSTREAM_HPP
 #define MYCRT_IOSTREAM_HPP
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 8984ad33ffa0163d3aecd8d43cda81e0319a23e1
 #include "mycrt.h"
 
 namespace std {
     class ofstream {
     protected:
         int fp;
+<<<<<<< HEAD
         ofstream(const ofstream& os) {
             if (&os == this) {
                 return;
             }
             this->fp = os.fp;
         }
+=======
+        ofstream(const ofstream&);
+>>>>>>> 8984ad33ffa0163d3aecd8d43cda81e0319a23e1
     public:
         enum openmode {IN=1, OUT=2, BINARY=4, TRUNC=8};
         ofstream();
