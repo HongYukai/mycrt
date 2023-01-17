@@ -14,16 +14,20 @@ extern "C" {
 #define stdout 1
 #define stderr 2
 
+typedef void (*cxa_func_t)(void*);
+typedef void (*atexit_func_t)(void);
+
 int my_crt_heap_init();
 
-<<<<<<< HEAD
 void* malloc(unsigned long long);
 
 void free(void*);
 
-=======
->>>>>>> 4b4fae43dc16ab2f8e3139d39dcd2b4e9d2a788e
 int my_crt_io_init();
+
+void do_global_ctors();
+
+void my_crt_call_exit_routine();
 
 int open(const char *filename, const char *mode);
 
@@ -53,7 +57,7 @@ char *itoa(int n, char *str, int radix);
 
 int strcmp(const char *src, const char *dst);
 
-char *strcpy(char *dest, char *src);
+char* strcpy(char* dest, const char* src);
 
 unsigned strlen(const char *str);
 

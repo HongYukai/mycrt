@@ -8,16 +8,12 @@ extern int main(int argc, char* argv[]);
 void exit(int exit_code);
 
 static void crt_fatal_error(const char* msg) {
-<<<<<<< HEAD
     printf("fatal error: %s\n", msg);
-=======
-    // printf("fatal error: %s", msg);
->>>>>>> 4b4fae43dc16ab2f8e3139d39dcd2b4e9d2a788e
     exit(1);
 }
 
 void exit(int exit_code) {
-    // my_crt_call_exit_routine();
+    my_crt_call_exit_routine();
     asm("movl %0, %%ebx \n\t"
         "movl $1, %%eax \n\t"
         "int $0x80 \n\t"
@@ -38,6 +34,7 @@ void my_crt_entry(void) {
     if (!my_crt_io_init()) {  //! io is not initialized
         crt_fatal_error("io initialized failed.");
     }
+    do_global_ctors();
     ret = main(argc, argv);
     exit(ret);
 }
